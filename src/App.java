@@ -28,7 +28,7 @@ public class App {
         System.out.println(greedy.search());
         
         NRPA nrpa = new NRPA(N, graph, globalPolicy);
-        nrpa.setParamters(3, 100, 2);
+        nrpa.setParamters(3, 100, 1);
         nrpa.setCapacityConstraint(capacity);
         System.out.println("MCTS Simulation");
         System.out.println(nrpa.search());
