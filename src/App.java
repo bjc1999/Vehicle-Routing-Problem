@@ -8,7 +8,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         //editFileFormat();
         int[] dim_cap = new int[2];
-        int[][] graph = readInstance("n32-k5.txt", dim_cap);
+        int[][] graph = readInstance("n5-k3.txt", dim_cap);
         int N = dim_cap[0];
         int capacity = dim_cap[1];
 
@@ -36,7 +36,7 @@ public class App {
     }
 
     /*
-     * Function to read VPR instances (test cases) from text file
+     * Function to read VRP instances (test cases) from text file
      */
     public static int[][] readInstance(String filename, int[] dim_cap) {
         int[][] graph = new int[1][1];

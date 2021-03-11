@@ -37,16 +37,16 @@ public class DFS {
             if (solution.getCurrentVehicleCapacity() + this.graph[a[i]][2] > capacity) {
                 // all vehicles must return to depot
                 solution.addStop(0);
-                solution.setCost(solution.getCost() + pythagorousDistance(this.graph[a[i-1]][0], this.graph[a[i-1]][1], this.graph[0][0], this.graph[0][1]));
+                solution.setCost(solution.getCost() + Utils.pythagorousDistance(this.graph[a[i-1]][0], this.graph[a[i-1]][1], this.graph[0][0], this.graph[0][1]));
                 solution.appendCost(solution.getCost());
                 // else add new vehicle to handle remaining demands
                 solution.addNewVehicle();
             }
             double distance = 0;
             if (solution.getSolution().getLast().getLast() == 0)
-                distance = pythagorousDistance(this.graph[a[i]][0], this.graph[a[i]][1], this.graph[0][0], this.graph[0][1]);
+                distance = Utils.pythagorousDistance(this.graph[a[i]][0], this.graph[a[i]][1], this.graph[0][0], this.graph[0][1]);
             else
-                distance = pythagorousDistance(this.graph[a[i-1]][0], this.graph[a[i-1]][1], this.graph[a[i]][0], this.graph[a[i]][1]);
+                distance = Utils.pythagorousDistance(this.graph[a[i-1]][0], this.graph[a[i-1]][1], this.graph[a[i]][0], this.graph[a[i]][1]);
             solution.addStop(a[i]);
             solution.setCost(solution.getCost() + distance);
             solution.addCapacity(this.graph[a[i]][2]);
@@ -54,7 +54,7 @@ public class DFS {
         int lastStop = solution.getSolution().getLast().getLast();
         // all vehicles must return to depot
         solution.addStop(0);
-        solution.setCost(solution.getCost() + pythagorousDistance(this.graph[lastStop][0], this.graph[lastStop][1], this.graph[0][0], this.graph[0][1]));
+        solution.setCost(solution.getCost() + Utils.pythagorousDistance(this.graph[lastStop][0], this.graph[lastStop][1], this.graph[0][0], this.graph[0][1]));
         solution.appendCost(solution.getCost());
         if (solution.getCost() < bestTour.getCost())
             bestTour = solution;
@@ -86,17 +86,6 @@ public class DFS {
                 a[size - 1] = temp;
             }
         }
-    }
-
-    public double pythagorousDistance(int x1, int y1, int x2, int y2) {
-        return Math.sqrt(Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2));
-    }
-
-    public boolean isAllNodeVisited(boolean[] visited) {
-        for (boolean isVisited: visited)
-            if (!isVisited)
-                return false;
-        return true;
     }
 
 }

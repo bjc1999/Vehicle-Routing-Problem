@@ -28,7 +28,7 @@ public class Greedy {
             int shortestNextStop = currentState;
             for (int i=1; i<N; i++) {
                 if (!checked[i]) {
-                    double distance = pythagorousDistance(graph[currentState][0], graph[currentState][1], graph[i][0], graph[i][1]);
+                    double distance = Utils.pythagorousDistance(graph[currentState][0], graph[currentState][1], graph[i][0], graph[i][1]);
                     if (distance < shortestDistance) {
                         shortestDistance = distance;
                         shortestNextStop = i;
@@ -38,10 +38,10 @@ public class Greedy {
             if (shortestNextStop == currentState) {
                 // all vehicles must return to depot
                 solution.addStop(0);
-                solution.setCost(solution.getCost() + pythagorousDistance(this.graph[currentState][0], this.graph[currentState][1], this.graph[0][0], this.graph[0][1]));
+                solution.setCost(solution.getCost() + Utils.pythagorousDistance(this.graph[currentState][0], this.graph[currentState][1], this.graph[0][0], this.graph[0][1]));
                 solution.appendCost(solution.getCost());
                 // if all stop visited then end the tour searching
-                if (isAllNodeVisited(visited))
+                if (Utils.isAllNodeVisited(visited))
                     break;
                 // else add new vehicle to handle remaining demands
                 solution.addNewVehicle();
@@ -69,16 +69,5 @@ public class Greedy {
             }
         }
         return solution;
-    }
-
-    public double pythagorousDistance(int x1, int y1, int x2, int y2) {
-        return Math.sqrt(Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2));
-    }
-
-    public boolean isAllNodeVisited(boolean[] visited) {
-        for (boolean isVisited: visited)
-            if (!isVisited)
-                return false;
-        return true;
     }
 }

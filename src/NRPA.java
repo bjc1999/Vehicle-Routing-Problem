@@ -94,10 +94,10 @@ public class NRPA {
             if (successors.size() == 0) {
                 // all vehicles must return to depot
                 solution.addStop(0);
-                solution.setCost(solution.getCost() + pythagorousDistance(this.graph[currentState][0], this.graph[currentState][1], this.graph[0][0], this.graph[0][1]));
+                solution.setCost(solution.getCost() + Utils.pythagorousDistance(this.graph[currentState][0], this.graph[currentState][1], this.graph[0][0], this.graph[0][1]));
                 solution.appendCost(solution.getCost());
                 // if all stop visited then end the tour searching
-                if (isAllNodeVisited(visited))
+                if (Utils.isAllNodeVisited(visited))
                     break;
                 // else add new vehicle to handle remaining demands
                 solution.addNewVehicle();
@@ -114,7 +114,7 @@ public class NRPA {
             // if no violation then add into route of current vehicle in solution
             if (!isViolated) {
                 solution.addStop(nextState);
-                solution.setCost(solution.getCost() + pythagorousDistance(this.graph[currentState][0], this.graph[currentState][1], this.graph[nextState][0], this.graph[nextState][1]));
+                solution.setCost(solution.getCost() + Utils.pythagorousDistance(this.graph[currentState][0], this.graph[currentState][1], this.graph[nextState][0], this.graph[nextState][1]));
                 solution.addCapacity(this.graph[nextState][2]);
                 visited[nextState] = true;
                 checked = visited.clone();
@@ -154,16 +154,5 @@ public class NRPA {
         while (sum < mrand)
             sum += probability[++i];
         return successors.get(i);
-    }
-
-    public boolean isAllNodeVisited(boolean[] visited) {
-        for (boolean isVisited: visited)
-            if (!isVisited)
-                return false;
-        return true;
-    }
-
-    public double pythagorousDistance(int x1, int y1, int x2, int y2) {
-        return Math.sqrt(Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2));
     }
 }
