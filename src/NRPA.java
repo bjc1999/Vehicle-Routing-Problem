@@ -14,6 +14,9 @@ public class NRPA {
     private double ALPHA;
     // constraints
     private int capacity;
+    // time
+    private long start;
+    private long end;
 
     public NRPA(int N, int[][] graph, double[][] globalPolicy) {
         this.N = N;
@@ -33,6 +36,7 @@ public class NRPA {
     }
 
     public Tour search() {
+        start = System.nanoTime();
         return search(level, iterations);
     }
 
@@ -50,6 +54,13 @@ public class NRPA {
                     best_solution = new_solution;
                     adapt(best_solution.getSolution(), level);
                 }
+                
+                // return current best tour if time exceeded
+                end = System.nanoTime();
+                long duration = end-start;
+                Utils.printProgress(duration);
+                if(duration > App.EXECUTION_TIME)
+                    return best_solution;
             }
             // update policy
             globalPolicy = policy[level].clone();

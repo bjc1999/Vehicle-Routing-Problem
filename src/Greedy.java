@@ -4,6 +4,9 @@ public class Greedy {
     private int[][] graph;
     // constraints
     private int capacity;
+    // time
+    private long start;
+    private long end;
 
     public Greedy(int N, int[][] graph) {
         this.N = N;
@@ -22,6 +25,7 @@ public class Greedy {
             visited[i] = false;
         }
         boolean[] checked = visited.clone();
+        start = System.nanoTime();
         while (true) {
             int currentState = solution.getSolution().getLast().getLast();
             double shortestDistance = Double.POSITIVE_INFINITY;
@@ -67,6 +71,10 @@ public class Greedy {
                         if (solution.getCurrentVehicleCapacity() + this.graph[i][2] > capacity)
                             checked[i] = true;
             }
+
+            end = System.nanoTime();
+            long duration = end-start;
+            Utils.printProgress(duration);
         }
         return solution;
     }

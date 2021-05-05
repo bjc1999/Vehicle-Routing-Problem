@@ -2,13 +2,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class App {
+    public static long EXECUTION_TIME = 60000000000L;
     public static void main(String[] args) throws Exception {
         //editFileFormat();
+        String filename = randomGenerate();
         int[] dim_cap = new int[2];
-        int[][] graph = readInstance("n5-k3.txt", dim_cap);
+        int[][] graph = readInstance(filename, dim_cap);
         int N = dim_cap[0];
         int capacity = dim_cap[1];
 
@@ -33,6 +36,32 @@ public class App {
         System.out.println("MCTS Simulation");
         System.out.println(nrpa.search());
         
+    }
+
+
+    /**
+     * Random generate test samples
+     */
+    public static String randomGenerate() {
+        Random rand = new Random();
+        int n_station = rand.nextInt(20);
+        int capacity = rand.nextInt(50) + 20;
+        try{
+            FileWriter myWriter = new FileWriter("resources/n"+n_station+"-c"+capacity+".txt");
+
+            myWriter.write(n_station+" "+capacity+"\n");
+
+            for(int i=0; i<n_station; i++) {
+                int demand = rand.nextInt(capacity);
+                if(i==0)
+                    demand = 0;
+                myWriter.write(rand.nextInt(200)+" "+rand.nextInt(200)+" "+demand+"\n");
+            }
+
+            myWriter.close();
+        }catch(Exception e){}
+
+        return "n"+n_station+"-c"+capacity+".txt";
     }
 
     /*

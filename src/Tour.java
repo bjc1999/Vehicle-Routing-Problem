@@ -62,7 +62,7 @@ public class Tour {
     }
 
     public String toString() {
-        String result = "Tour\nTour Cost: " + this.cost + "\n";
+        String result = "\nTour\nTour Cost: " + this.cost + "\n";
         for (int i=0; i<solution.size(); i++) {
             result += "Vehicle " + (i+1) + "\n0 -> ";
             for (int j=1; j<solution.get(i).size() - 1; j++) {

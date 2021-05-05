@@ -1,10 +1,14 @@
 ## Searching Algorithm
+### Max Execution Time
+
+The maximum execution time for every search by default is 1 mins.  
+If any of the search is searching longer than 1 mins, it will stopped and return current best tour immediately.  
+
 ### DFS
 
-The naming is a bit confusing, it should be brute force.
-I use permutation to list out all possible combinations and look for the lowest cost combination
-This should result in the same as using DFS traversal to travel whole search space
-It only can work with small N, for test case with N = 30+ might need to comment out the DFS search in main method
+The naming is a bit confusing, it should be brute force.  
+I use permutation to list out all possible combinations and look for the lowest cost combination.  
+This should result in the same as using DFS traversal to travel whole search space.
 
 ### Greedy search
 
@@ -26,7 +30,6 @@ Welcome to the VS Code Java world. Here is a guideline to help you get started t
 The workspace contains two folders by default, where:
 
 - `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
 - `resources`: the folder to maintain resources
 
 ## Dependency Management

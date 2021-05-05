@@ -5,6 +5,10 @@ public class DFS {
     private Tour bestTour;
     // constraints
     private int capacity;
+    // time
+    private long start;
+    private long end;
+    private boolean time_exceeded = false;
 
     public DFS(int N, int[][] graph) {
         this.N = N;
@@ -20,6 +24,7 @@ public class DFS {
         int[] stops = new int[N-1];
         for (int i=1; i<N; i++)
             stops[i-1] = i;
+        start = System.nanoTime();
         heapPermutation(stops, N-1, N-1);
         return bestTour;
     }
@@ -64,10 +69,18 @@ public class DFS {
     {
         // if size becomes 1 then prints the obtained
         // permutation
-        if (size == 1)
+        if (size == 1) {
             calcSolution(a, n);
+            end = System.nanoTime();
+            long duration = end-start;
+            Utils.printProgress(duration);
+            if(duration > App.EXECUTION_TIME)
+                time_exceeded=true;
+        }
  
         for (int i = 0; i < size; i++) {
+            if(time_exceeded) return;
+
             heapPermutation(a, size - 1, n);
  
             // if size is odd, swap 0th i.e (first) and
