@@ -37,6 +37,8 @@ public class NRPA {
 
     public Tour search() {
         start = System.nanoTime();
+        // for low N, iterations no need to be too large
+        if(this.N <= 10) iterations = 70;
         return search(level, iterations);
     }
 

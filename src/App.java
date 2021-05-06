@@ -9,7 +9,8 @@ public class App {
     public static long EXECUTION_TIME = 60000000000L;
     public static void main(String[] args) throws Exception {
         //editFileFormat();
-        String filename = randomGenerate();
+        String filename = "n10-c43.txt";
+        //String filename = randomGenerate();
         int[] dim_cap = new int[2];
         int[][] graph = readInstance(filename, dim_cap);
         int N = dim_cap[0];
@@ -44,7 +45,7 @@ public class App {
      */
     public static String randomGenerate() {
         Random rand = new Random();
-        int n_station = rand.nextInt(20);
+        int n_station = rand.nextInt(20)+2;
         int capacity = rand.nextInt(50) + 20;
         try{
             FileWriter myWriter = new FileWriter("resources/n"+n_station+"-c"+capacity+".txt");
