@@ -17,22 +17,32 @@ Nothing special, it work like normal greedy search which always select best move
 ### NRPA
 
 Monte Carlo Tree Search with Nested Rollout Policy Adaptation
-To be honest, I couldn't search of any source codes (in this domain) about this so I implement this searching based on several research papers that give pseudocode I had read through.
+This searching is implemented based on several research papers that give pseudocode I had read through.
 The pseudocode provided is somehow quite ambigious at some parts, so those parts I implement it just by trying and based on my understanding, thus may have mistakes where I didn't notice.
 
-
-## Getting Started
-
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
 ## Folder Structure
+```
+.  
+├── resources    
+|   ├── nx-cy.txt 
+|   └── ...  
+├── mcts  
+|   ├── pseudo-code.txt  
+|   └── README.md
+├── dfs-bfs    
+|   ├── DFS-BFS.md
+|   └── README.md
+├── src
+├── DS Assignment_Delivery Route.pdf 
+└── README.md
+```
+| Folder/File                         | Descriptions                                                                                      |
+|:-----------------------------------:|---------------------------------------------------------------------------------------------------|
+|`resources`                          |Resource folder that contains all test sets you can play with.                                     |
+|`mcts`                               |Folder contains pseudocode for MCTS algorithm and a documentation for MCTS brief explanation.      |
+|`dfs-bfs`                            |Folder contains question and dfs or bfs based related clarification.                               |
+|`src`                                |Folder contains source codes.                                                                      |
+|`DS Assignment_Delivery Route.pdf`   |Original question pdf.                                                                             |
+|`README.md`                          |The document you are currently reading.                                                            |
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `resources`: the folder to maintain resources
-
-## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
 
