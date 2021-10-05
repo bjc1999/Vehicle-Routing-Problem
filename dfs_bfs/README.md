@@ -1,5 +1,5 @@
 ### Basic Simulation Explanation/Clarification
-Please refer [`Basic Simulation.md`](https://github.com/bjc1999/Vehicle-Routing-Problem/blob/main/update/DFS-BFS.md) for more information.
+Please refer [`DFS-BFS.md`](https://github.com/bjc1999/Vehicle-Routing-Problem/blob/main/dfs_bfs/DFS-BFS.md) for more information.
 
 ### Basic Simulation with large N
 1. I did not explain clearly on how `Basic Simulation` method should handle test sets with large N in my question thus I added extra explanations here.
@@ -17,7 +17,7 @@ Please refer [`Basic Simulation.md`](https://github.com/bjc1999/Vehicle-Routing-
 6. You might also want to study [`Carriage Return`](https://www.codespeedy.com/how-does-a-carriage-return-r-works-in-java/) in Java for progress bar printing purpose.
 7. Please note that elapsed time and search result might be different depending on your devices.
 
-![Sample Console Output](https://github.com/bjc1999/Vehicle-Routing-Problem/blob/main/update/Delivery%20Tour%20Search.gif)
+![Sample Console Output](https://github.com/bjc1999/Vehicle-Routing-Problem/blob/main/dfs_bfs/Delivery%20Tour%20Search.gif)
 ```
 Basic Simulation
 Time elapsed: |============================================================| 60s (Searching is forced to stop!)
